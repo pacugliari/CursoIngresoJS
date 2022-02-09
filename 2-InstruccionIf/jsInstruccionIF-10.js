@@ -24,7 +24,7 @@ function mostrar()
 	valorMinimo = 1;
 
 	//Obtengo el valor de la nota random
-	notaRandom = Math.random() * ((valorMaximo+1) - valorMinimo) + valorMinimo;
+	notaRandom = Math.floor(Math.random() * valorMaximo) + valorMinimo;
 
 	//Parseo a entero
 	notaRandom = parseInt(notaRandom);

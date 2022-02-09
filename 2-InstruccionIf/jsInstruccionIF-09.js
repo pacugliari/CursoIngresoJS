@@ -20,7 +20,8 @@ function mostrar()
 	valorMinimo = 1;
 
 	//Obtengo el numero random
-	numeroRandom = Math.random() * ((valorMaximo+1) - valorMinimo) + valorMinimo;
+	numeroRandom = Math.floor(Math.random() * valorMaximo) + valorMinimo;
+
 	
 	//Convierto a entero ya que random devuelve un numero con decimales
 	numeroRandom = parseInt(numeroRandom);
