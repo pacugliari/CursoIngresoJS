@@ -1,7 +1,7 @@
 /*
 Alumno: Pablo Alberto Cugliari
 Division: B
-Ejercicio : TP 4
+Ejercicio : TP 4 (VERSION SWITCH)
 
 4.	Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
@@ -11,10 +11,86 @@ C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas
 D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
 E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos en informar del impuesto con el siguiente mensaje:
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
-
  */
 
 
+function CalcularPrecio () 
+{
+
+    //Variables
+    var precioDescuento;
+    var precioTotal;
+    var cantidad;
+    var precioFinal;
+    var marca;
+    var valorIngresosBrutos=0;
+    var descuento;
+
+    //Obtengo los datos desde los ID
+    cantidad = document.getElementById("txtIdCantidad").value;
+    marca = document.getElementById("Marca").value;
+    cantidad = parseInt (cantidad);
+
+    //Calculo el precio de las lamparas sin descuento
+    precioTotal = (35*cantidad); //35 PRECIO LAMPARITA
+
+    //Evaluo los descuentos correspondientes
+    switch(cantidad){
+        case 5:
+            if(marca == "ArgentinaLuz"){
+                descuento = 0.6; //DESCUENTO DEL 40%
+            }else{
+                descuento = 0.7; //DESCUENTO DEL 30%
+            }
+        break;
+        case 4:
+            if(marca == "ArgentinaLuz" || marca == "FelipeLamparas"){
+                descuento = 0.75; //DESCUENTO DEL 25%
+            }else{
+                descuento = 0.8; //DESCUENTO DEL 20%
+            }
+        break;
+        case 3:
+            switch(marca){
+                case "ArgentinaLuz":
+                    descuento = 0.85;//DESCUENTO 15%
+                break;
+                case "FelipeLamparas":
+                    descuento = 0.9;//DESCUENTO 10%
+                break;
+                default:
+                    descuento = 0.95;//DESCUENTO 5%
+                break;
+            }
+        break;
+        case 2:
+        case 1:
+            descuento=1;//SIN DESCUENTO
+        break;
+        default:
+            descuento = 0.5;//DESCUENTO 50%
+        break;
+        
+    }
+
+    //Aplico descuento
+    precioDescuento =  precioTotal*descuento;
+
+    //Muestro si debe pagar ingresos brutos
+    if(precioDescuento > 120){
+        valorIngresosBrutos = precioDescuento*0.1; //INGRESOS BRUTOS 10%;
+        alert("Usted pago "+ valorIngresosBrutos +" de IIBB.");
+    }
+
+    //Aplico ingresos brutos si corresponde
+    precioFinal = precioDescuento + valorIngresosBrutos;
+
+    //Muestro el precio
+    document.getElementById("txtIdprecioDescuento").value = precioFinal;
+}
+
+
+/* CON IF
 function CalcularPrecio () 
 {
   
@@ -77,3 +153,7 @@ function CalcularPrecio ()
     //Muestro el precio
     document.getElementById("txtIdprecioDescuento").value = precioFinal;
 }
+
+
+
+*/
