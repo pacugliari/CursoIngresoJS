@@ -29,12 +29,11 @@ function mostrar()
 				case "Bariloche":
 					ajustePrecio=1.2;//AUMENTO 20%
 				break;
-				case "Cataratas":
-				case "Cordoba":
-					ajustePrecio=0.9;//DESCUENTO 10%
-				break;
 				case "Mar del plata":
 					ajustePrecio=0.8;//DESCUENTO 20%
+				break;
+				default:
+					ajustePrecio=0.9;//DESCUENTO 10%
 				break;
 			}
 		break;
@@ -43,26 +42,21 @@ function mostrar()
 				case "Bariloche":
 					ajustePrecio=0.8;//DESCUENTO 20%
 				break;
-				case "Cataratas":
-				case "Cordoba":
-					ajustePrecio=1.1;//AUMENTO 10%
-				break;
 				case "Mar del plata":
 					ajustePrecio=1.2;//AUMENTO 20%
 				break;
-			}
-		break;
-		case "Otoño":
-		case "Primavera":
-			switch(destinoIngresado){
-				case "Bariloche":
-				case "Mar del plata":
-				case "Cataratas":
+				default:
 					ajustePrecio=1.1;//AUMENTO 10%
 				break;
-
+			}
+		break;
+		default:
+			switch(destinoIngresado){
 				case "Cordoba":
 					ajustePrecio=1;//SIN DESCUENTO
+				break;
+				default:
+					ajustePrecio=1.1;//AUMENTO 10%
 				break;
 			}
 		break;
