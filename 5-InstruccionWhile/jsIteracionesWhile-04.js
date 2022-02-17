@@ -12,7 +12,7 @@ function mostrar()
 	var numeroIngresado;
 	numeroIngresado = prompt("ingrese un número entre 0 y 9 inclusive");
 
-	while(numeroIngresado > 9 || numeroIngresado < 0){
+	while(numeroIngresado > 9 || numeroIngresado < 0 || !numeroIngresado){
 		numeroIngresado = prompt("ingrese un número entre 0 y 9 inclusive");
 	}
 	

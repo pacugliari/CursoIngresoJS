@@ -25,7 +25,7 @@ function mostrar()
 	}
 
 
-	txtIdSuma.value=acumulador;
-	txtIdPromedio.value=acumulador/contador;
+	document.getElementById("txtIdSuma").value=acumulador;
+	document.getElementById("txtIdPromedio").value=acumulador/contador;
 
 }//FIN DE LA FUNCIÓN

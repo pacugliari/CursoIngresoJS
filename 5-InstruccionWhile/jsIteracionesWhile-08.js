@@ -12,7 +12,7 @@ function mostrar()
 	var sumaPositivos;
 	var multiplicacionNegativos;
 	sumaPositivos=0;
-	multiplicacionNegativos=1;
+	multiplicacionNegativos=0;
 	respuesta='si';
 
 	while(respuesta == "si" || respuesta== "SI"){
@@ -21,7 +21,10 @@ function mostrar()
 		if(numeroIngresado > -1){
 			sumaPositivos+=numeroIngresado;
 		}else{
-			multiplicacionNegativos = multiplicacionNegativos*numeroIngresado
+			if(!multiplicacionNegativos){
+				multiplicacionNegativos=1;
+			}
+			multiplicacionNegativos = multiplicacionNegativos*numeroIngresado;
 		}
 		respuesta = prompt("Desea seguir ingresando numeros ? SI-NO");
 	}
