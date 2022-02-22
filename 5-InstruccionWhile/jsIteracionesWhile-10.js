@@ -39,20 +39,23 @@ function mostrar()
 		numeroIngresado = prompt("Ingrese un numero");
 		numeroIngresado = parseInt(numeroIngresado);
 		console.log(numeroIngresado);
-		if(numeroIngresado > -1){
+		if(numeroIngresado > 0){//POSITIVO
 			sumaPositivos+=numeroIngresado;
 			contadorPositivos++;
-		}else{
+		}else if (!numeroIngresado){//NUMERO INGRESADO CERO
+			cantidadCeros++;
+		}else{//NEGATIVO
 			sumaNegativos += numeroIngresado;
 			contadorNegativos++;
 		}
 		if(!(numeroIngresado%2)){//NUMERO PAR
 			cantidadPares++;
 		}
-		if(!numeroIngresado){//NUMERO INGRESADO CERO
-			cantidadCeros++;
-		}
-		respuesta = prompt("Desea seguir ingresando numeros ? SI-NO");
+
+		do{
+			respuesta = prompt("Desea seguir ingresando numeros ? SI-NO");
+		}while(respuesta != "SI" && respuesta != "NO" && respuesta != "si" && respuesta != "no");//VERIFICO QUE LA RESPUESTA
+			
 	}
 
 	if(contadorPositivos)

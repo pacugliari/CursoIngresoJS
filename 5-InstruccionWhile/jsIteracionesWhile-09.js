@@ -12,25 +12,28 @@ function mostrar()
 	var numeroMaximo;
 	var numeroMinimo;
 	var respuesta;
+	var esPrimeraIteracion = true;//uso de flag
 	//iniciar variables
 	respuesta='si';
 	
-	//LECTURA PREVIA
-	numeroIngresado = prompt("Ingrese un numero");
-	numeroIngresado = parseInt(numeroIngresado);
-	numeroMaximo = numeroIngresado;
-	numeroMinimo = numeroIngresado;
-	respuesta = prompt("Desea seguir ingresando numeros ? SI-NO");
 
 	while(respuesta == "si" || respuesta== "SI"){
 		numeroIngresado = prompt("Ingrese un numero");
+		if(!numeroIngresado)//VERIFICO QUE NO INGRESE VACIO
+			numeroIngresado=0;
 		numeroIngresado = parseInt(numeroIngresado);
-		if(numeroIngresado > numeroMaximo){
+		if(esPrimeraIteracion){
+			numeroMaximo = numeroIngresado;
+			numeroMinimo = numeroIngresado;
+			esPrimeraIteracion=false;
+		}else if(numeroIngresado > numeroMaximo){
 			numeroMaximo = numeroIngresado;
 		}else if (numeroIngresado < numeroMinimo){
 			numeroMinimo = numeroIngresado
 		}
-		respuesta = prompt("Desea seguir ingresando numeros ? SI-NO");
+		do{
+			respuesta = prompt("Desea seguir ingresando numeros ? SI-NO");
+		}while(respuesta != "SI" && respuesta != "NO" && respuesta != "si" && respuesta != "no");//VERIFICO QUE LA RESPUESTA
 	}
 	
 	document.getElementById("txtIdMaximo").value=numeroMaximo;
